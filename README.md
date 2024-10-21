@@ -16,4 +16,5 @@ Simple hacking tools written in Python
 
 ## ToDo
 - [ ] Add a DDoS script
-- [ ] Modify Port Scanner V02 for a faster scan
+- [ ] Modify Port Scanner V2 for a faster scan
+- [ ] Add UDP protocol scan mode to Port Scanner V2
