@@ -6,8 +6,8 @@ Simple hacking tools written in Python
 
 ## Tools
 - Port Scanner
-	- V01: Fast but not powerful enough (could miss some ports)
-	- V02: Powerful but not fast enough (could take a long time)
+	- V1: Fast but not powerful enough (could miss some ports)
+	- V2: Powerful but not fast enough (could take a long time)
 
 ## How To Run
 1. Clone this repo: `git clone https://github.com/BazarganDev/hacking-tools.git`
