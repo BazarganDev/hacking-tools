@@ -19,7 +19,7 @@ def get_args():
     Get command-line arguments.
 
     Returns:
-        - options (namespace): Parsed command-line arguments containing target IP and protocol.
+        Parsed command-line arguments containing target IP and protocol.
     """
     parser = argparse.ArgumentParser()
     parser.add_argument("-t", "--target", dest="target", help="IP Address")
@@ -36,8 +36,8 @@ def tcp_scan(ip, port):
     Scan single TCP port.
     
     Args:
-        - ip (str):     Target IP address/domain name.
-        - port (int):   Target port number.
+        ip:     Target IP address/domain name.
+        port:   Target port number.
     """
     # Create a TCP socket
     s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -58,8 +58,8 @@ def udp_scan(ip, port):
     Scan single UDP port.
     
     Args:
-        - ip (str):     Target IP address/domain name.
-        - port (int):   Target port number.
+        ip:     Target IP address/domain name.
+        port:   Target port number.
     """
     # Create a UDP socket
     s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
@@ -85,10 +85,10 @@ def multi_scan(ip, start_port, end_port, protocol):
     Scan multiple ports simultaneously.
     
     Args:
-        - ip (srt):             Target IP address/domain name.
-        - start_port (int):     Scan starting from this port.
-        - end_port (int):       Scan ending at this port (included).
-        - protocol (str):       Scan protocol.
+        ip:             Target IP address/domain name.
+        start_port:     Scan starting from this port.
+        end_port:       Scan ending at this port (included).
+        protocol:       Scan protocol.
     """
     threads = []
     for port in range(start_port, end_port + 1):
