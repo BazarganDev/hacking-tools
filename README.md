@@ -12,7 +12,7 @@ Simple hacking tools written in Python
 ## How To Run
 1. Clone this repo: `git clone https://github.com/BazarganDev/hacking-tools.git`
 2. Install requirements: `pip install -r requirements.txt`
-3. Run the script: `python tools.py`
+3. Run the script: `python SCRIPT_NAME.py`
 
 ## ToDo
 - [ ] Add a DDoS script
