@@ -5,7 +5,7 @@ Simple hacking tools written in Python
 **The tools provided in this repository are intended for educational purposes only. By using these tools, you acknowledge that you are responsible for your actions and any consequences that may arise from their use. The author does not endorse or condone any illegal or malicious activities. Use these tools at your own risk, and ensure that you have permission to test any systems or networks you interact with. The author disclaims any responsibility for any harm, damage, or legal issues that may result from the use of these tools.**
 
 ## Tools
-- Port Scanners
+- Port Scanner
 	- V01: Fast but not powerful enough (could miss some ports)
 	- V02: Powerful but not fast enough (could take a long time)
 
