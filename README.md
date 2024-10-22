@@ -14,7 +14,13 @@ Simple hacking tools written in Python
 2. Install requirements: `pip install -r requirements.txt`
 3. Run the script: `python SCRIPT_NAME.py`
 
+## Where To Scan?
+Since scanning ports on a host without a permission or authority is illegal in most cases, I recommend you to create a simple web server on your localhost with Python. Just go to the directory you want and create a HTTP server:<br>
+```
+~ cd DIRECTORY/FOR/CREATING/SERVER/
+~ python -m http.server 8080
+```
+Now you can go to `http://localhost:8080` to check out your server. Now you can perform your hacking attempts on the localhost to avoid your IP being blacklisted on the internet or any other legal issues. 🙂
+
 ## ToDo
 - [ ] Add a DDoS script
-- [ ] Modify Port Scanner V2 for a faster scan
-- [ ] Add UDP protocol scan mode to Port Scanner V2
