@@ -58,7 +58,8 @@ async def port_scanner(host, start_port, end_port):
     for r in done:
         if r.result():      # If the result is not None, the port is open.
             open_ports.append(r.result())
-    
+
+    open_ports.sort()
     return open_ports
 
 
