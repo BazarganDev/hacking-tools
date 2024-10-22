@@ -1,12 +1,3 @@
-"""
-Test
-
-Host:               iana.org
-Ports found:        21, 80
-Average runtime:    2 sec 87 ms
-Conclusion:         Fast but not powerful enough (missed port 443 in the test)
-"""
-
 # Import necessary modules
 import threading
 import socket
@@ -109,7 +100,7 @@ if __name__ == "__main__":
     options = get_args()
     target_ip = options.target
     protocol = options.protocol
-    print("-" * 70)
+    print("-" * 75)
     print(f"Target: {target_ip}\t\tPort Range: 1-65535\t\tProtocol: {protocol}")
-    print("-" * 70)
-    multi_scan(target_ip, 1, 65535, protocol)
+    print("-" * 75)
+    multi_scan(target_ip, 1, 10000, protocol)
