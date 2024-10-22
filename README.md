@@ -15,7 +15,7 @@ Simple hacking tools written in Python
 3. Run the script: `python SCRIPT_NAME.py`
 
 ## Where To Scan?
-Since scanning ports on a host without a permission or authority is illegal in most cases, I recommend you to create a simple web server on your localhost with Python. Just go to the directory you want and create a HTTP server:<br>
+Since scanning ports or performing a DDoS attack on a host without a permission or authority is illegal in most cases, I recommend you to create a simple web server on your localhost with Python. Just go to the directory you want and create a HTTP server:
 ```
 ~ cd DIRECTORY/FOR/CREATING/SERVER/
 ~ python -m http.server 8080
