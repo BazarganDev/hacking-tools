@@ -1,12 +1,3 @@
-"""
-Test
-
-Host:               iana.org
-Ports found:        21, 80, 443
-Average runtime:    2 min 50 sec
-Conclusion:         Powerful but not fast enough (took 2 min 48 sec more time)
-"""
-
 # Import necesary modules
 from tqdm import tqdm
 import asyncio
@@ -26,13 +17,18 @@ async def resolve_host(resolver, host):
         The resolved IP address or None if an error occurs.
     """
     try:
-        # Query for A record (IPv4 address)
-        result = await resolver.query(host, "A")
-        # Return the first resolved IP address
-        return result[0].host
-    except Exception as e:
-        print(f"Error resolving {host}\n{e}")
-        return None
+        # Check if the host is a valid IP address.
+        socket.inet_aton(host)
+        return host
+    except socket.error:
+        try:
+            # Query for A record (IPv4 address).
+            result = await resolver.query(host, "A")
+            # Return the first resolved IP address.
+            return result[0].host
+        except Exception as e:
+            print(f"Error resolving {host}\n{e}")
+            return None
 
 
 async def port_scanner(host, start_port, end_port):
@@ -48,7 +44,7 @@ async def port_scanner(host, start_port, end_port):
     """
     # Create a DNS resolver instance.
     resolver = aiodns.DNSResolver()
-    # Resolve the host to an IP address
+    # Resolve the host to an IP address.
     ip_address = await resolve_host(resolver, host)
     if ip_address is None:
         return
@@ -98,7 +94,6 @@ def save_to_file(filename, data):
             f.write(f"{line}\n")
 
 
-
 if __name__ == "__main__":
     if len(sys.argv) < 4 or len(sys.argv) > 5:
         print("Usage: python port_scanner_v2.py <host> <start_port> <end_port> [save_to_file]")
@@ -111,22 +106,22 @@ if __name__ == "__main__":
     if len(sys.argv) == 5:
         if sys.argv[4] == "save_to_file":
             save_to_file_flag = True
-    # Get the current event loop for asynchronous operations
+    # Get the current event loop for asynchronous operations.
     loop = asyncio.get_event_loop()
-    # Run the port scanner coroutine until it completes and get the list of open ports
+    # Run the port scanner coroutine until it completes and get the list of open ports.
     open_ports = loop.run_until_complete(port_scanner(host, start_port, end_port))
 
     if open_ports:
         print(f"\nOpen ports on {host} in the range {start_port}-{end_port}:")
 
         if save_to_file_flag:
-            # If the save_to_file flag is set, write the open ports to a file
+            # If the save_to_file flag is set, write the open ports to a file.
             with open("port_scan_report.txt", 'w') as f:
                 for port in open_ports:
-                    f.write(f"{port} ---------- OPEN\n")
+                    f.write(f"{port}\t\t----------\t\tOPEN\n")
         else:
-            # If not saving to a file, print the open ports to the console with a progress bar
+            # If not saving to a file, print the open ports to the console with a progress bar.
             for port in tqdm(open_ports, leave=True):
-                print(f"{port} ---------- OPEN")
+                print(f"{port}\t\t----------\t\tOPEN")
     else:
         print(f"No open ports found on host {host}")
